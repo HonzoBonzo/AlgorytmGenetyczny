@@ -48,7 +48,7 @@ namespace AlgorytmGenetyczny
         public int SilaPrzetrwania { get; set; }
 
 
-        public Osobnik mutacja()
+        virtual public Osobnik mutacja()
         {
             return this;
         }
