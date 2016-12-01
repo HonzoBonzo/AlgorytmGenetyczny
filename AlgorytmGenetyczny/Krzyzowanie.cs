@@ -14,7 +14,7 @@ namespace AlgorytmGenetyczny
         }
 
 
-        virtual internal List<Osobnik> dokonajKrzyzowki(List<Osobnik> pokolenie) // jakas domyslna krzyzowka dubluje Osobnikow 
+        virtual internal List<Osobnik> dokonajKrzyzowki(List<Osobnik> pokolenie) // jakas domyslna krzyzowka dubluje Osobnikow np
         {
             List<Osobnik> nowePokolenie = new List<Osobnik>();
             foreach (Osobnik os in pokolenie)

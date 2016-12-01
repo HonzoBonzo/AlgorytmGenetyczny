@@ -39,8 +39,8 @@ namespace AlgorytmGenetyczny
         public void symulujPokolenie()
         {
             List<Osobnik> nowePokolenie = metodaSelekcji.dokonajSelekcji(populacja);
-            nowePokolenie = dokonajKrzyzowki(nowePokolenie, metodaKrzyzowania);
-            nowePokolenie = dokonajMutacji(nowePokolenie, metodaMutacji);
+            nowePokolenie = metodaKrzyzowania.dokonajKrzyzowki(nowePokolenie);
+            nowePokolenie = metodaMutacji.dokonajMutacji(nowePokolenie);
     
         }
 

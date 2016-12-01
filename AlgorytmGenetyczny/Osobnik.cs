@@ -45,8 +45,13 @@ namespace AlgorytmGenetyczny
             var sila = rnd.Next(0, 100);
             this.silaPrzetrwania = sila;
         }
-        public int SilaPrzetrwania { get; set; }    
+        public int SilaPrzetrwania { get; set; }
 
+
+        public Osobnik mutacja()
+        {
+            return this;
+        }
     }
 
 
