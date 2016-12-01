@@ -13,10 +13,20 @@ namespace AlgorytmGenetyczny
         int silaPrzetrwania; //wartosc od 0 - 100 %
         int chromosom;
 
+        public Osobnik()
+        {
+            this.dane.Add("nazwa", "Domyslna");
+            this.dane.Add("wartosc", "Domyslna");
+            //var wartosc = rnd.Next(1, 1000);
+            stworzChromosom();
+            ocenSilePrzetrwania();
+        }
+
         public Osobnik(Dictionary<string,string> dane) {
             this.dane = dane;
             przetworzDane();
             stworzChromosom();
+            ocenSilePrzetrwania();
         }
 
         void stworzChromosom(){

@@ -11,43 +11,48 @@ namespace AlgorytmGenetyczny
         int wielkoscPopulacji;
         int liczbaPokolen;
         List<Osobnik> populacja;
+        Selekcja metodaSelekcji;
+        Krzyzowanie metodaKrzyzowania;
+        Mutacja metodaMutacji;
 
-        public Populacja(int wielkosc = 100, int liczbaEpok = 10) //domyslne wartosci dla populacji
+
+        public Populacja(Selekcja s, Krzyzowanie k, Mutacja m, int wielkosc = 100, int liczbaEpok = 10) //domyslne wartosci dla populacji
         {
+            this.metodaSelekcji = s;
+            this.metodaKrzyzowania = k;
+            this.metodaMutacji = m;
             this.wielkoscPopulacji = wielkosc;
             this.liczbaPokolen = liczbaEpok;
+            populacja = losujPopulacje(wielkosc);
         }
 
-        public void symulujPokolenie(Selekcja metodaSelekcji, Krzyzowanie metodaKrzyzowania, Mutacja metodaMutacji )
+        private List<Osobnik> losujPopulacje(int wielkosc)
         {
-            List<Osobnik> nowePokolenie = dokonajSelekcji(metodaSelekcji);
+            List<Osobnik> pierwszaPopulacja = new List<Osobnik>();
+            for (int i = 0; i < wielkosc; i++)
+            {
+                pierwszaPopulacja.Add(new Osobnik());
+            }
+            return pierwszaPopulacja;
+        }
+
+        public void symulujPokolenie()
+        {
+            List<Osobnik> nowePokolenie = metodaSelekcji.dokonajSelekcji(populacja);
             nowePokolenie = dokonajKrzyzowki(nowePokolenie, metodaKrzyzowania);
             nowePokolenie = dokonajMutacji(nowePokolenie, metodaMutacji);
     
         }
 
-        private List<Osobnik> dokonajMutacji(List<Osobnik> nowePokolenie, Mutacja metodaMutacji)
-        {
-            throw new NotImplementedException();
-        }
 
         private List<Osobnik> dokonajKrzyzowki(List<Osobnik> nowePokolenie, Krzyzowanie metodaKrzyzowania)
         {
             throw new NotImplementedException();
         }
 
-        private List<Osobnik> dokonajSelekcji(Selekcja metodaSelekcji)
+        private List<Osobnik> dokonajMutacji(List<Osobnik> nowePokolenie, Mutacja metodaMutacji)
         {
-            List<Osobnik> nowyZbior = new List<Osobnik>();
-            foreach (Osobnik os in populacja)
-            {
-                //sprawdz osobnika, jesli przetrwal to dodaj do nowej populacji
-                if (metodaSelekcji.sprawdz(os)) //zwraca bool
-                {
-                    nowyZbior.Add(os);
-                }
-            }
-            return nowyZbior;
+            throw new NotImplementedException();
         }
 
         public List<Osobnik> Populacja { get; set; }

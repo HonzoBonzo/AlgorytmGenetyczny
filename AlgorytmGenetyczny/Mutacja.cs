@@ -7,5 +7,6 @@ namespace AlgorytmGenetyczny
 {
     class Mutacja
     {
+
     }
 }
